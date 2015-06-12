@@ -23,8 +23,8 @@ to run **aeneas** inside [VirtualBox](https://www.virtualbox.org).
 ### System Requirements
 
 1. 4 GB RAM, 2 GHz CPU (3 GHz recommended)
-2. [VirtualBox](http://www.virtualbox.com)
-3. [Vagrant](http://www.vagrant.com/)
+2. [VirtualBox](http://www.virtualbox.org)
+3. [Vagrant](http://www.vagrantup.com/)
 
 ### Supported Platforms
 
