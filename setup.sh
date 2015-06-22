@@ -3,11 +3,11 @@
 # Author: Alberto Pettarin
 # Copyright: 2015, Alberto Pettarin (www.albertopettarin.it)
 # License: GNU AGPL v3
-# Version: 1.0.0
+# Version: 1.0.1
 # Email: aeneas@readbeyond.it
 # Status: Production
 
-DEB="deb-multimedia-keyring_2015.6_all.deb"
+DEB="deb-multimedia-keyring_2015.6.1_all.deb"
 DIR="aeneas"
 
 if ! [ -e "$DIR" ]
