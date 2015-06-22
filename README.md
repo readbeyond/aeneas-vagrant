@@ -15,7 +15,7 @@ See the [documentation](http://www.readbeyond.it/aeneas/) for further details.
 
 This repo contains the files needed to automate
 the creation of a [Vagrant box](https://www.vagrantup.com/)
-to run **aeneas** inside [VirtualBox](https://www.virtualbox.org).
+to run **aeneas** inside [VirtualBox](https://www.virtualbox.org/).
 
 
 ## System Requirements, Supported Platforms and Installation
@@ -23,7 +23,7 @@ to run **aeneas** inside [VirtualBox](https://www.virtualbox.org).
 ### System Requirements
 
 1. 4 GB RAM, 2 GHz CPU (3 GHz recommended)
-2. [VirtualBox](http://www.virtualbox.org)
+2. [VirtualBox](http://www.virtualbox.org/)
 3. [Vagrant](http://www.vagrantup.com/)
 
 ### Supported Platforms
