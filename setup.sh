@@ -3,7 +3,7 @@
 # Author: Alberto Pettarin
 # Copyright: 2015, Alberto Pettarin (www.albertopettarin.it)
 # License: GNU AGPL v3
-# Version: 1.0.1
+# Version: 1.1.0
 # Email: aeneas@readbeyond.it
 # Status: Production
 
@@ -49,6 +49,7 @@ then
     echo "[INFO] D.1 Cloning aeneas GitHub repo..."
     git clone https://github.com/readbeyond/aeneas.git
     cd "$DIR" 
+    bash compile_c_extensions.sh
     echo "[INFO] D.1 Cloning aeneas GitHub repo... done"
 
     echo "[INFO] Setting vagrant box up... done"
