@@ -2,8 +2,8 @@
 
 **aeneas-vagrant** automates the creation of a Vagrant box to run **aeneas**
 
-* Version: 1.1.0
-* Date: 2015-08-21
+* Version: 1.1.1
+* Date: 2015-08-23
 * Developed by: [Alberto Pettarin](http://www.albertopettarin.it/)
 * License: the GNU Affero General Public License Version 3 (AGPL v3)
 * Contact: [aeneas@readbeyond.it](mailto:aeneas@readbeyond.it)
@@ -22,7 +22,7 @@ to run **aeneas** inside [VirtualBox](https://www.virtualbox.org/).
 
 ### System Requirements
 
-1. 4 GB RAM, 2 GHz CPU (3 GHz recommended)
+1. 2 GB RAM, 2 GHz CPU (4 GB RAM, 3 GHz CPU recommended)
 2. [VirtualBox](http://www.virtualbox.org/)
 3. [Vagrant](http://www.vagrantup.com/)
 
@@ -153,6 +153,29 @@ $ vagrant destroy
 (This last command cannot be undone,
 you will need to recreate the box from scratch.)
 
+### Updating `aeneas`
+
+If you want to update `aeneas`
+inside the Vagrant box
+(e.g., because a new version has been released):
+
+1. Start the box:
+
+    ```bash
+    $ vagrant up
+    ```
+
+2. Log into the box:
+
+    ```bash
+    $ vagrant ssh
+    ```
+3. Move into the `aeneas` dir and pull updates from GitHub:
+
+    ```bash
+    $ cd aeneas
+    $ git pull
+    ```
 
 ## License
 

@@ -3,7 +3,7 @@
 # Author: Alberto Pettarin
 # Copyright: 2015, Alberto Pettarin (www.albertopettarin.it)
 # License: GNU AGPL v3
-# Version: 1.1.0
+# Version: 1.1.1
 # Email: aeneas@readbeyond.it
 # Status: Production
 
@@ -52,6 +52,11 @@ then
     bash compile_c_extensions.sh
     echo "[INFO] D.1 Cloning aeneas GitHub repo... done"
 
+    echo "[INFO] E.1 Transferring aeneas/ to vagrant user..."
+    cd ..
+    chown -R vagrant:vagrant "$DIR" 
+    echo "[INFO] E.1 Transferring aeneas/ to vagrant user... done"
+    
     echo "[INFO] Setting vagrant box up... done"
 else
     echo "[INFO] This vagrant box has been already set up, nothing to do here."

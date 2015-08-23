@@ -4,7 +4,7 @@
 # Author: Alberto Pettarin
 # Copyright: 2015, Alberto Pettarin (www.albertopettarin.it)
 # License: GNU AGPL v3
-# Version: 1.1.0
+# Version: 1.1.1
 # Email: aeneas@readbeyond.it
 # Status: Production
 
