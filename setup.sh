@@ -15,16 +15,28 @@ then
     echo "[INFO] Setting vagrant box up..."
 
     echo "[INFO] A.1 Adding some popular Debian mirrors to apt sources..."
-    sudo sh -c 'echo "" >> /etc/apt/sources.list'
-    sudo sh -c 'echo "deb http://debian.ethz.ch/debian/ jessie main" >> /etc/apt/sources.list'
-    sudo sh -c 'echo "deb-src http://debian.ethz.ch/debian/ jessie main" >> /etc/apt/sources.list'
-    sudo sh -c 'echo "" >> /etc/apt/sources.list'
-    sudo sh -c 'echo "deb http://debian.csail.mit.edu/debian/ jessie main" >> /etc/apt/sources.list'
-    sudo sh -c 'echo "deb-src http://debian.csail.mit.edu/debian/ jessie main" >> /etc/apt/sources.list'
-    sudo sh -c 'echo "" >> /etc/apt/sources.list'
-    sudo sh -c 'echo "deb http://mirror.cse.unsw.edu.au/debian/ jessie main" >> /etc/apt/sources.list'
-    sudo sh -c 'echo "deb-src http://mirror.cse.unsw.edu.au/debian/ jessie main" >> /etc/apt/sources.list'
-    sudo sh -c 'echo "" >> /etc/apt/sources.list'
+    #
+    # append to /etc/apt/sources.list
+    #
+    #sudo sh -c 'echo "" >> /etc/apt/sources.list'
+    #sudo sh -c 'echo "deb http://debian.ethz.ch/debian/ jessie main" >> /etc/apt/sources.list'
+    #sudo sh -c 'echo "deb-src http://debian.ethz.ch/debian/ jessie main" >> /etc/apt/sources.list'
+    #sudo sh -c 'echo "" >> /etc/apt/sources.list'
+    #sudo sh -c 'echo "deb http://debian.csail.mit.edu/debian/ jessie main" >> /etc/apt/sources.list'
+    #sudo sh -c 'echo "deb-src http://debian.csail.mit.edu/debian/ jessie main" >> /etc/apt/sources.list'
+    #sudo sh -c 'echo "" >> /etc/apt/sources.list'
+    #sudo sh -c 'echo "deb http://mirror.cse.unsw.edu.au/debian/ jessie main" >> /etc/apt/sources.list'
+    #sudo sh -c 'echo "deb-src http://mirror.cse.unsw.edu.au/debian/ jessie main" >> /etc/apt/sources.list'
+    #sudo sh -c 'echo "" >> /etc/apt/sources.list'
+    #
+    # create entries in /etc/apt/sources.list.d/
+    #
+    sudo sh -c 'echo "deb http://debian.ethz.ch/debian/ jessie main" >> /etc/apt/sources.list.d/ethz.list'
+    sudo sh -c 'echo "deb-src http://debian.ethz.ch/debian/ jessie main" >> /etc/apt/sources.list.d/ethz.list'
+    sudo sh -c 'echo "deb http://debian.csail.mit.edu/debian/ jessie main" >> /etc/apt/sources.list.d/mit.list'
+    sudo sh -c 'echo "deb-src http://debian.csail.mit.edu/debian/ jessie main" >> /etc/apt/sources.list.d/mit.list'
+    sudo sh -c 'echo "deb http://mirror.cse.unsw.edu.au/debian/ jessie main" >> /etc/apt/sources.list.d/unsw.list'
+    sudo sh -c 'echo "deb-src http://mirror.cse.unsw.edu.au/debian/ jessie main" >> /etc/apt/sources.list.d/unsw.list'
     echo "[INFO] A.1 Adding some popular Debian mirrors to apt sources... done"
 
     echo "[INFO] A.2 Downloading and installing deb-multimedia keyring..."
@@ -42,7 +54,9 @@ then
     echo "[INFO] A.2 Downloading and installing deb-multimedia keyring... done"
 
     echo "[INFO] A.3 Adding deb-multimedia to apt sources..."
+    sudo sh -c 'echo "" >> /etc/apt/sources.list'
     sudo sh -c 'echo "deb http://www.deb-multimedia.org jessie main" >> /etc/apt/sources.list'
+    sudo sh -c 'echo "" >> /etc/apt/sources.list'
     echo "[INFO] A.3 Adding deb-multimedia to apt sources... done"
 
     echo "[INFO] A.4 Updating apt..."
