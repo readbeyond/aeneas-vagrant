@@ -62,13 +62,12 @@ then
     echo "[INFO] B.3 Installing common libs using apt-get..."
     sudo apt-get install -y build-essential
     sudo apt-get install -y flac libasound2-dev libsndfile1-dev vorbis-tools
-    sudo apt-get install -y python-beautifulsoup python-dev python-lxml python-numpy python-pip
+    sudo apt-get install -y python-beautifulsoup python-dev python-lxml python-numpy
     echo "[INFO] B.3 Installing common libs using apt-get... done"
     
     echo "[INFO] C.1 Installing Python modules using pip..."
-    # VAGRANT only
-    # these two Debian packages provide the C headers needed to compile lxml
-    sudo apt-get install -y libxml2-dev libxslt-dev
+    # these Debian packages provide pip and the C headers needed to compile lxml
+    sudo apt-get install -y python-pip libxml2-dev libxslt-dev
     sudo pip install BeautifulSoup lxml numpy pafy
     echo "[INFO] C.1 Installing Python modules using pip... done"
 
