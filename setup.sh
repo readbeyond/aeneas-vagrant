@@ -15,19 +15,7 @@ then
     echo "[INFO] Setting vagrant box up..."
 
     echo "[INFO] A.1 Adding some popular Debian mirrors to apt sources..."
-    #
-    # append to /etc/apt/sources.list
-    #
-    #sudo sh -c 'echo "" >> /etc/apt/sources.list'
-    #sudo sh -c 'echo "deb http://debian.ethz.ch/debian/ jessie main" >> /etc/apt/sources.list'
-    #sudo sh -c 'echo "deb-src http://debian.ethz.ch/debian/ jessie main" >> /etc/apt/sources.list'
-    #sudo sh -c 'echo "" >> /etc/apt/sources.list'
-    #sudo sh -c 'echo "deb http://debian.csail.mit.edu/debian/ jessie main" >> /etc/apt/sources.list'
-    #sudo sh -c 'echo "deb-src http://debian.csail.mit.edu/debian/ jessie main" >> /etc/apt/sources.list'
-    #sudo sh -c 'echo "" >> /etc/apt/sources.list'
-    #sudo sh -c 'echo "deb http://mirror.cse.unsw.edu.au/debian/ jessie main" >> /etc/apt/sources.list'
-    #sudo sh -c 'echo "deb-src http://mirror.cse.unsw.edu.au/debian/ jessie main" >> /etc/apt/sources.list'
-    #sudo sh -c 'echo "" >> /etc/apt/sources.list'
+    # VAGRANT only
     #
     # create entries in /etc/apt/sources.list.d/
     #
@@ -78,25 +66,32 @@ then
     echo "[INFO] B.3 Installing common libs using apt-get... done"
     
     echo "[INFO] C.1 Installing Python modules using pip..."
+    # VAGRANT only
+    # these two Debian packages provide the C headers needed to compile lxml
+    sudo apt-get install -y libxml2-dev libxslt-dev
     sudo pip install BeautifulSoup lxml numpy pafy --upgrade
     echo "[INFO] C.1 Installing Python modules using pip... done"
 
     echo "[INFO] D.1 Installing common tools..."
+    # VAGRANT only
     sudo apt-get install -y git
     sudo apt-get install -y file htop screen vim unzip
     echo "[INFO] D.1 Installing common tools... done"
 
     echo "[INFO] E.1 Cloning aeneas GitHub repo..."
+    # VAGRANT only
     git clone https://github.com/readbeyond/aeneas.git
     echo "[INFO] E.1 Cloning aeneas GitHub repo... done"
 
     echo "[INFO] F.1 Running setup.py..."
+    # VAGRANT only
     cd "$DIR"
     python setup.py build_ext --inplace
     cd ..
     echo "[INFO] F.1 Running setup.py... done"
 
     echo "[INFO] G.1 Transferring aeneas/ to vagrant user..."
+    # VAGRANT only
     chown -R vagrant:vagrant "$DIR" 
     echo "[INFO] G.1 Transferring aeneas/ to vagrant user... done"
     
