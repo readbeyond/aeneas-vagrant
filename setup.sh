@@ -3,7 +3,7 @@
 # Author: Alberto Pettarin
 # Copyright: 2015, Alberto Pettarin (www.albertopettarin.it)
 # License: GNU AGPL v3
-# Version: 1.3.0
+# Version: 1.3.1
 # Email: aeneas@readbeyond.it
 # Status: Production
 
@@ -19,12 +19,19 @@ then
     #
     # create entries in /etc/apt/sources.list.d/
     #
-    sudo sh -c 'echo "deb http://debian.ethz.ch/debian/ jessie main" >> /etc/apt/sources.list.d/ethz.list'
-    sudo sh -c 'echo "deb-src http://debian.ethz.ch/debian/ jessie main" >> /etc/apt/sources.list.d/ethz.list'
-    sudo sh -c 'echo "deb http://debian.csail.mit.edu/debian/ jessie main" >> /etc/apt/sources.list.d/mit.list'
-    sudo sh -c 'echo "deb-src http://debian.csail.mit.edu/debian/ jessie main" >> /etc/apt/sources.list.d/mit.list'
-    sudo sh -c 'echo "deb http://mirror.cse.unsw.edu.au/debian/ jessie main" >> /etc/apt/sources.list.d/unsw.list'
-    sudo sh -c 'echo "deb-src http://mirror.cse.unsw.edu.au/debian/ jessie main" >> /etc/apt/sources.list.d/unsw.list'
+    # if you experience problems with the stock Debian repo, please enable one of the following
+    #
+    # Europe (ETH, Zurich, Switzerland)
+    # sudo sh -c 'echo "deb http://debian.ethz.ch/debian/ jessie main" >> /etc/apt/sources.list.d/ethz.list'
+    # sudo sh -c 'echo "deb-src http://debian.ethz.ch/debian/ jessie main" >> /etc/apt/sources.list.d/ethz.list'
+    #
+    # Americas (MIT, Boston, USA)
+    # sudo sh -c 'echo "deb http://debian.csail.mit.edu/debian/ jessie main" >> /etc/apt/sources.list.d/mit.list'
+    # sudo sh -c 'echo "deb-src http://debian.csail.mit.edu/debian/ jessie main" >> /etc/apt/sources.list.d/mit.list'
+    #
+    # Asia (UNSW, Sydney, Australia)
+    # sudo sh -c 'echo "deb http://mirror.cse.unsw.edu.au/debian/ jessie main" >> /etc/apt/sources.list.d/unsw.list'
+    # sudo sh -c 'echo "deb-src http://mirror.cse.unsw.edu.au/debian/ jessie main" >> /etc/apt/sources.list.d/unsw.list'
     echo "[INFO] A.1 Adding some popular Debian mirrors to apt sources... done"
 
     echo "[INFO] A.2 Downloading and installing deb-multimedia keyring..."
