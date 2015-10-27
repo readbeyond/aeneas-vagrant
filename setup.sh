@@ -69,7 +69,7 @@ then
     # VAGRANT only
     # these two Debian packages provide the C headers needed to compile lxml
     sudo apt-get install -y libxml2-dev libxslt-dev
-    sudo pip install BeautifulSoup lxml numpy pafy --upgrade
+    sudo pip install BeautifulSoup lxml numpy pafy
     echo "[INFO] C.1 Installing Python modules using pip... done"
 
     echo "[INFO] D.1 Installing common tools..."
