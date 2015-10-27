@@ -3,7 +3,7 @@
 # Author: Alberto Pettarin
 # Copyright: 2015, Alberto Pettarin (www.albertopettarin.it)
 # License: GNU AGPL v3
-# Version: 1.2.0
+# Version: 1.3.0
 # Email: aeneas@readbeyond.it
 # Status: Production
 
@@ -68,29 +68,37 @@ then
     echo "[INFO] B.1 Installing ffmpeg (from deb-multimedia)... done"
 
     echo "[INFO] B.2 Installing espeak..."
-    sudo apt-get install -y espeak*
+    sudo apt-get install -y espeak espeak-data libespeak1 libespeak-dev
     echo "[INFO] B.2 Installing espeak... done"
 
     echo "[INFO] B.3 Installing common libs using apt-get..."
-    sudo apt-get install -y build-essential git screen vim
-    sudo apt-get install -y flac libasound2-dev libsndfile1-dev libxml2-dev libxslt-dev vorbis-tools
-    sudo apt-get install -y python-beautifulsoup python-dev python-lxml python-numpy python-pip python-scipy
+    sudo apt-get install -y build-essential
+    sudo apt-get install -y flac libasound2-dev libsndfile1-dev vorbis-tools
+    sudo apt-get install -y python-beautifulsoup python-dev python-lxml python-numpy python-pip
     echo "[INFO] B.3 Installing common libs using apt-get... done"
     
     echo "[INFO] C.1 Installing Python modules using pip..."
-    sudo pip install BeautifulSoup lxml numpy scikits.audiolab pafy
+    sudo pip install BeautifulSoup lxml numpy pafy --upgrade
     echo "[INFO] C.1 Installing Python modules using pip... done"
 
-    echo "[INFO] D.1 Cloning aeneas GitHub repo..."
-    git clone https://github.com/readbeyond/aeneas.git
-    cd "$DIR" 
-    python setup.py build_ext --inplace
-    echo "[INFO] D.1 Cloning aeneas GitHub repo... done"
+    echo "[INFO] D.1 Installing common tools..."
+    sudo apt-get install -y git
+    sudo apt-get install -y file htop screen vim unzip
+    echo "[INFO] D.1 Installing common tools... done"
 
-    echo "[INFO] E.1 Transferring aeneas/ to vagrant user..."
+    echo "[INFO] E.1 Cloning aeneas GitHub repo..."
+    git clone https://github.com/readbeyond/aeneas.git
+    echo "[INFO] E.1 Cloning aeneas GitHub repo... done"
+
+    echo "[INFO] F.1 Running setup.py..."
+    cd "$DIR"
+    python setup.py build_ext --inplace
     cd ..
+    echo "[INFO] F.1 Running setup.py... done"
+
+    echo "[INFO] G.1 Transferring aeneas/ to vagrant user..."
     chown -R vagrant:vagrant "$DIR" 
-    echo "[INFO] E.1 Transferring aeneas/ to vagrant user... done"
+    echo "[INFO] G.1 Transferring aeneas/ to vagrant user... done"
     
     echo "[INFO] Setting vagrant box up... done"
 else
