@@ -2,9 +2,9 @@
 # vi: set ft=ruby :
 
 # Author: Alberto Pettarin
-# Copyright: 2015, Alberto Pettarin (www.albertopettarin.it)
+# Copyright: 2015-2016, Alberto Pettarin (www.albertopettarin.it)
 # License: GNU AGPL v3
-# Version: 1.3.1
+# Version: 1.4.0
 # Email: aeneas@readbeyond.it
 # Status: Production
 
