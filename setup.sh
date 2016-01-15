@@ -84,10 +84,11 @@ then
     sudo pip install pip --upgrade
     echo "[INFO] D.1 Updating pip... done"
 
-    echo "[INFO] E.1 Installing numpy via pip..."
+    echo "[INFO] E.1 Installing numpy and pafy via pip..."
     # VAGRANT only
     sudo pip install numpy --upgrade
-    echo "[INFO] E.1 Installing numpy via pip... done"
+    sudo pip install pafy --upgrade
+    echo "[INFO] E.1 Installing numpy and pafy via pip... done"
 
     echo "[INFO] F.1 Installing aeneas via pip..."
     # VAGRANT only
