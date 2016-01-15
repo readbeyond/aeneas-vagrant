@@ -2,8 +2,8 @@
 
 **aeneas-vagrant** automates the creation of a Vagrant box to run **aeneas**
 
-* Version: 1.3.1
-* Date: 2015-10-28
+* Version: 1.4.0
+* Date: 2016-01-15
 * Developed by: [Alberto Pettarin](http://www.albertopettarin.it/)
 * License: the GNU Affero General Public License Version 3 (AGPL v3)
 * Contact: [aeneas@readbeyond.it](mailto:aeneas@readbeyond.it)
@@ -89,14 +89,9 @@ creating a VirtualBox image of roughly 3.5 GB on your host machine disk.
 3. You will get a new prompt:
 
     ```bash
-    vagrant@debian-800-jessie:~$
+    vagrant@debian-jessie:~$
     ```
 
-4. Move into the `aeneas` directory:
-
-    ```bash
-    vagrant@debian-800-jessie:~$ cd aeneas
-    ```
 
 ### Running `aeneas`
 
@@ -104,10 +99,18 @@ At this point you can run **aeneas** as if it was installed
 on your host machine. For example:
 
 ```bash
-vagrant@debian-800-jessie:~/aeneas$ python -m aeneas.tools.execute_job aeneas/tests/res/container/job.zip /vagrant/
+vagrant@debian-jessie:~$ python -m aeneas.tools.execute_job -h 
 ```
 
-will execute a sample job and place its output
+will show the usage message for `execute_job`.
+
+If you want to run the sample job:
+
+```bash
+vagrant@debian-jessie:~$ python -m aeneas.tools.execute_job ../../usr/local/lib/python2.7/dist-packages/aeneas/tools/res/job.zip /vagrant/
+```
+
+will execute the sample job and place its output
 in the `/vagrant/` shared directory.
 
 The `/vagrant/` directory is shared between
@@ -118,7 +121,7 @@ For example, you can read `job.zip` from your host machine
 and write its output to your host machine:
 
 ```bash
-vagrant@debian-800-jessie:~/aeneas$ python -m aeneas.tools.execute_job /vagrant/job.zip /vagrant/
+vagrant@debian-jessie:~$ python -m aeneas.tools.execute_job /vagrant/job.zip /vagrant/
 ```
 
 ### Suspending, closing and destroying the box
@@ -126,14 +129,14 @@ vagrant@debian-800-jessie:~/aeneas$ python -m aeneas.tools.execute_job /vagrant/
 To suspend the box:
 
 ```bash
-vagrant@debian-800-jessie:~/aeneas$ exit
+vagrant@debian-jessie:~$ exit
 $ vagrant suspend
 ```
 
 To shut the box down:
 
 ```bash
-vagrant@debian-800-jessie:~/aeneas$ exit
+vagrant@debian-jessie:~$ exit
 $ vagrant halt
 ```
 
@@ -170,11 +173,10 @@ inside the Vagrant box
     ```bash
     $ vagrant ssh
     ```
-3. Move into the `aeneas` dir and pull updates from GitHub:
+3. Update `aeneas` via `pip`:
 
     ```bash
-    $ cd aeneas
-    $ git pull
+    $ sudo pip install aeneas --upgrade
     ```
 
 ## License

@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Author: Alberto Pettarin
-# Copyright: 2015, Alberto Pettarin (www.albertopettarin.it)
+# Copyright: 2015-2016, Alberto Pettarin (www.albertopettarin.it)
 # License: GNU AGPL v3
-# Version: 1.3.1
+# Version: 1.4.0
 # Email: aeneas@readbeyond.it
 # Status: Production
 
@@ -69,38 +69,32 @@ then
     echo "[INFO] B.3 Installing common libs using apt-get..."
     sudo apt-get install -y build-essential
     sudo apt-get install -y flac libasound2-dev libsndfile1-dev vorbis-tools
-    sudo apt-get install -y python-beautifulsoup python-dev python-lxml python-numpy
+    sudo apt-get install -y libxml2-dev libxslt-dev
+    sudo apt-get install -y python-dev python-pip
     echo "[INFO] B.3 Installing common libs using apt-get... done"
     
-    echo "[INFO] C.1 Installing Python modules using pip..."
-    # these Debian packages provide pip and the C headers needed to compile lxml
-    sudo apt-get install -y python-pip libxml2-dev libxslt-dev
-    sudo pip install BeautifulSoup lxml numpy pafy
-    echo "[INFO] C.1 Installing Python modules using pip... done"
-
-    echo "[INFO] D.1 Installing common tools..."
+    echo "[INFO] C.1 Installing common tools..."
     # VAGRANT only
     sudo apt-get install -y git
     sudo apt-get install -y file htop screen vim unzip
-    echo "[INFO] D.1 Installing common tools... done"
+    echo "[INFO] C.1 Installing common tools... done"
 
-    echo "[INFO] E.1 Cloning aeneas GitHub repo..."
+    echo "[INFO] D.1 Updating pip..."
     # VAGRANT only
-    git clone https://github.com/readbeyond/aeneas.git
-    echo "[INFO] E.1 Cloning aeneas GitHub repo... done"
+    sudo pip install pip --upgrade
+    echo "[INFO] D.1 Updating pip... done"
 
-    echo "[INFO] F.1 Running setup.py..."
+    echo "[INFO] E.1 Installing numpy and pafy via pip..."
     # VAGRANT only
-    cd "$DIR"
-    python setup.py build_ext --inplace
-    cd ..
-    echo "[INFO] F.1 Running setup.py... done"
+    sudo pip install numpy --upgrade
+    sudo pip install pafy --upgrade
+    echo "[INFO] E.1 Installing numpy and pafy via pip... done"
 
-    echo "[INFO] G.1 Transferring aeneas/ to vagrant user..."
+    echo "[INFO] F.1 Installing aeneas via pip..."
     # VAGRANT only
-    chown -R vagrant:vagrant "$DIR" 
-    echo "[INFO] G.1 Transferring aeneas/ to vagrant user... done"
-    
+    sudo pip install aeneas --upgrade
+    echo "[INFO] F.1 Installing aeneas via pip... done"
+
     echo "[INFO] Setting vagrant box up... done"
 else
     echo "[INFO] This vagrant box has been already set up, nothing to do here."
