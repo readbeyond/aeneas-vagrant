@@ -2,16 +2,16 @@
 
 **aeneas-vagrant** automates the creation of a Vagrant box to run **aeneas**
 
-* Version: 1.4.0
-* Date: 2016-01-15
+* Version: 1.4.1
+* Date: 2016-02-17
 * Developed by: [Alberto Pettarin](http://www.albertopettarin.it/)
 * License: the GNU Affero General Public License Version 3 (AGPL v3)
 * Contact: [aeneas@readbeyond.it](mailto:aeneas@readbeyond.it)
 
 ## Goal
 
-**aeneas** is a Python library and a set of tools to automagically synchronize audio and text.
-See the [documentation](http://www.readbeyond.it/aeneas/) for further details.
+**aeneas** is a Python/C library and a set of tools to automagically synchronize audio and text (aka forced alignment).
+See the [aeneas documentation](http://www.readbeyond.it/aeneas/) for further details.
 
 This repo contains the files needed to automate
 the creation of a [Vagrant box](https://www.vagrantup.com/)
@@ -39,8 +39,8 @@ Make sure you have VirtualBox and Vagrant installed on your machine,
 and 3.5 GB of free space.
 
 ```bash
-$ git clone https://github.com/readbeyond/aeneas-vagrant.git
-$ cd aeneas-vagrant
+git clone https://github.com/readbeyond/aeneas-vagrant.git
+cd aeneas-vagrant
 ```
 
 The default configuration (file `Vagrantfile`)
@@ -56,7 +56,7 @@ on your host machine, for example `4096` if you have more than 4 GB of RAM.
 To start the initialization of the Vagrant box, just run:
 
 ```bash
-$ vagrant up
+vagrant up
 ```
 
 Vagrant will download a base box and
@@ -77,13 +77,13 @@ creating a VirtualBox image of roughly 3.5 GB on your host machine disk.
 1. Start the box:
 
     ```bash
-    $ vagrant up
+    vagrant up
     ```
 
 2. Log into the box:
 
     ```bash
-    $ vagrant ssh
+    vagrant ssh
     ```
 
 3. You will get a new prompt:
@@ -104,25 +104,44 @@ vagrant@debian-jessie:~$ python -m aeneas.tools.execute_job -h
 
 will show the usage message for `execute_job`.
 
+You can also use the `aeneas_execute_job` shortcut:
+
+```bash
+vagrant@debian-jessie:~$ aeneas_execute_job -h 
+```
+
 If you want to run the sample job:
 
 ```bash
-vagrant@debian-jessie:~$ python -m aeneas.tools.execute_job ../../usr/local/lib/python2.7/dist-packages/aeneas/tools/res/job.zip /vagrant/
+vagrant@debian-jessie:~$ aeneas_execute_job ../../usr/local/lib/python2.7/dist-packages/aeneas/tools/res/job.zip /vagrant/ 
 ```
 
 will execute the sample job and place its output
 in the `/vagrant/` shared directory.
 
 The `/vagrant/` directory is shared between
-the host machine (e.g., your PC) and the guest machine (the virtual box);
+the host machine (usually your PC) and the guest machine (the virtual box);
 you can use it to read your input materials and
 to write the files output by **aeneas**.
 For example, you can read `job.zip` from your host machine
 and write its output to your host machine:
 
 ```bash
-vagrant@debian-jessie:~$ python -m aeneas.tools.execute_job /vagrant/job.zip /vagrant/
+vagrant@debian-jessie:~$ aeneas_execute_job /vagrant/job.zip /vagrant/
 ```
+
+Similarily, you can use the following shortcuts:
+
+* `aeneas_convert_syncmap`
+* `aeneas_download`
+* `aeneas_execute_job`
+* `aeneas_execute_task`
+* `aeneas_synthesize_text`
+* `aeneas_validate`
+
+Run any of them with the `-h` or `--help` flag
+to print its usage message.
+
 
 ### Suspending, closing and destroying the box
 
@@ -130,31 +149,34 @@ To suspend the box:
 
 ```bash
 vagrant@debian-jessie:~$ exit
-$ vagrant suspend
+vagrant suspend
 ```
 
 To shut the box down:
 
 ```bash
 vagrant@debian-jessie:~$ exit
-$ vagrant halt
+vagrant halt
 ```
 
 You can resume from suspended or halted state by:
 
 ```bash
-$ vagrant up
+vagrant up
 ```
 
 If you want to destroy the box,
 deleting the VirtualBox machine files:
 
 ```bash
-$ vagrant destroy
+vagrant destroy
 ```
 
-(This last command cannot be undone,
-you will need to recreate the box from scratch.)
+(The `destroy` command cannot be undone!
+You will need to recreate the box from scratch
+to work with aeneas another time.
+Use it only if you are sure you want to delete
+the virtual box.)
 
 ### Updating `aeneas`
 
@@ -165,18 +187,18 @@ inside the Vagrant box
 1. Start the box:
 
     ```bash
-    $ vagrant up
+    vagrant up
     ```
 
 2. Log into the box:
 
     ```bash
-    $ vagrant ssh
+    vagrant ssh
     ```
 3. Update `aeneas` via `pip`:
 
     ```bash
-    $ sudo pip install aeneas --upgrade
+    sudo pip install aeneas --upgrade
     ```
 
 ## License
