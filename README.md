@@ -2,8 +2,8 @@
 
 **aeneas-vagrant** automates the creation of a Vagrant box to run **aeneas**
 
-* Version: 1.4.1
-* Date: 2016-02-17
+* Version: 1.5.0
+* Date: 2016-04-02
 * Developed by: [Alberto Pettarin](http://www.albertopettarin.it/)
 * License: the GNU Affero General Public License Version 3 (AGPL v3)
 * Contact: [aeneas@readbeyond.it](mailto:aeneas@readbeyond.it)
@@ -132,10 +132,12 @@ vagrant@debian-jessie:~$ aeneas_execute_job /vagrant/job.zip /vagrant/
 
 Similarily, you can use the following shortcuts:
 
+* `aeneas_check_setup`
 * `aeneas_convert_syncmap`
 * `aeneas_download`
 * `aeneas_execute_job`
 * `aeneas_execute_task`
+* `aeneas_plot_waveform`
 * `aeneas_synthesize_text`
 * `aeneas_validate`
 

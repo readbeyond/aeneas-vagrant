@@ -3,7 +3,7 @@
 # Author: Alberto Pettarin
 # Copyright: 2015-2016, Alberto Pettarin (www.albertopettarin.it)
 # License: GNU AGPL v3
-# Version: 1.4.1
+# Version: 1.5.0
 # Email: aeneas@readbeyond.it
 # Status: Production
 
@@ -87,7 +87,9 @@ then
     echo "[INFO] E.1 Installing numpy and pafy via pip..."
     # VAGRANT only
     sudo pip install numpy --upgrade
+    sudo pip install youtube-dl --upgrade
     sudo pip install pafy --upgrade
+    sudo pip install Pillow --upgrade
     echo "[INFO] E.1 Installing numpy and pafy via pip... done"
 
     echo "[INFO] F.1 Installing aeneas via pip..."
