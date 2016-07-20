@@ -7,14 +7,17 @@
 # Email: aeneas@readbeyond.it
 # Status: Production
 
-DEB="deb-multimedia-keyring_2015.6.1_all.deb"
+# DISABLED
+    #DEB="deb-multimedia-keyring_2015.6.1_all.deb"
+
 DIR="aeneas"
 
 if ! [ -e "$DIR" ]
 then
     echo "[INFO] Setting vagrant box up..."
 
-    set -x # Debug output
+    # debug output
+    set -x
 
     #echo "[INFO] A.1 Adding some popular Debian mirrors to apt sources..."
     # VAGRANT only
@@ -36,19 +39,20 @@ then
     # sudo sh -c 'echo "deb-src http://mirror.cse.unsw.edu.au/debian/ jessie main" >> /etc/apt/sources.list.d/unsw.list'
     #echo "[INFO] A.1 Adding some popular Debian mirrors to apt sources... done"
 
-    #echo "[INFO] A.2 Downloading and installing deb-multimedia keyring..."
-    #wget -t 5 "http://www.deb-multimedia.org/pool/main/d/deb-multimedia-keyring/$DEB"
-    #if ! [ -e "$DEB" ]
-    #then
-    #    echo "[ERRO] Cannot download the deb-multimedia keyring."
-    #    echo "[ERRO] This might be due to a temporary network or server problem."
-    #    echo "[ERRO] Please retry installing this Vagrant box later."
-    #    echo "[ERRO] If the problem persists, please send an email to aeneas@readbeyond.it"
-    #    exit 1
-    #fi
-    #sudo dpkg -i "$DEB"
-    #rm "$DEB"
-    #echo "[INFO] A.2 Downloading and installing deb-multimedia keyring... done"
+    # DISABLED
+        #echo "[INFO] A.2 Downloading and installing deb-multimedia keyring..."
+        #wget -t 5 "http://www.deb-multimedia.org/pool/main/d/deb-multimedia-keyring/$DEB"
+        #if ! [ -e "$DEB" ]
+        #then
+        #    echo "[ERRO] Cannot download the deb-multimedia keyring."
+        #    echo "[ERRO] This might be due to a temporary network or server problem."
+        #    echo "[ERRO] Please retry installing this Vagrant box later."
+        #    echo "[ERRO] If the problem persists, please send an email to aeneas@readbeyond.it"
+        #    exit 1
+        #fi
+        #sudo dpkg -i "$DEB"
+        #rm "$DEB"
+        #echo "[INFO] A.2 Downloading and installing deb-multimedia keyring... done"
 
     echo "[INFO] A.1 Adding deb-multimedia to apt sources..."
     sudo sh -c 'echo "" >> /etc/apt/sources.list'
