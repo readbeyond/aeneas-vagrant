@@ -4,7 +4,7 @@
 # Author: Alberto Pettarin
 # Copyright: 2015-2016, Alberto Pettarin (www.albertopettarin.it)
 # License: GNU AGPL v3
-# Version: 1.5.0
+# Version: 1.5.1
 # Email: aeneas@readbeyond.it
 # Status: Production
 
@@ -18,6 +18,9 @@ Vagrant.configure(2) do |config|
   # config.vm.synced_folder "../data", "/vagrant_data"
   
   config.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    #vb.gui = true
+    # Display with this VM name:
     vb.name = "aeneas"
     # Customize the amount of memory on the VM:
     vb.memory = "2048"
