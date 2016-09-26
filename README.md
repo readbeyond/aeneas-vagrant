@@ -2,8 +2,8 @@
 
 **aeneas-vagrant** automates the creation of a Vagrant box to run **aeneas**
 
-* Version: 1.5.1
-* Date: 2016-07-25
+* Version: 1.6.0
+* Date: 2016-09-26
 * Developed by: [Alberto Pettarin](http://www.albertopettarin.it/)
 * License: the GNU Affero General Public License Version 3 (AGPL v3)
 * Contact: [aeneas@readbeyond.it](mailto:aeneas@readbeyond.it)
