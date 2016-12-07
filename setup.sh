@@ -3,7 +3,7 @@
 # Author: Alberto Pettarin
 # Copyright: 2015-2016, Alberto Pettarin (www.albertopettarin.it)
 # License: GNU AGPL v3
-# Version: 1.6.0
+# Version: 1.7.0
 # Email: aeneas@readbeyond.it
 # Status: Production
 
@@ -78,12 +78,16 @@ then
     sudo apt-get install -y espeak espeak-data libespeak1 libespeak-dev
     echo "[INFO] B.2 Installing espeak... done"
 
-    echo "[INFO] B.3 Installing common libs using apt-get..."
+    echo "[INFO] B.3 Installing festival..."
+    sudo apt-get install -y festival*
+    echo "[INFO] B.3 Installing festival... done"
+
+    echo "[INFO] B.4 Installing common libs using apt-get..."
     sudo apt-get install -y build-essential
     sudo apt-get install -y flac libasound2-dev libsndfile1-dev vorbis-tools
     sudo apt-get install -y libxml2-dev libxslt-dev zlib1g-dev
     sudo apt-get install -y python-dev python-pip
-    echo "[INFO] B.3 Installing common libs using apt-get... done"
+    echo "[INFO] B.4 Installing common libs using apt-get... done"
     
     echo "[INFO] C.1 Installing common tools..."
     # VAGRANT only
@@ -96,18 +100,23 @@ then
     sudo pip install pip --upgrade
     echo "[INFO] D.1 Updating pip... done"
 
-    echo "[INFO] E.1 Installing numpy and pafy via pip..."
+    echo "[INFO] E.1 Installing Python deps via pip..."
     # VAGRANT only
     sudo pip install numpy --upgrade
-    sudo pip install youtube-dl --upgrade
-    sudo pip install pafy --upgrade
+    sudo pip install boto3 pafy requests tgt youtube-dl --upgrade
     sudo pip install Pillow --upgrade
-    echo "[INFO] E.1 Installing numpy and pafy via pip... done"
+    echo "[INFO] E.1 Installing Python deps via pip... done"
 
     echo "[INFO] F.1 Installing aeneas via pip..."
     # VAGRANT only
-    sudo pip install aeneas --upgrade
+    sudo AENEAS_FORCE_CFW=True pip install aeneas --upgrade
     echo "[INFO] F.1 Installing aeneas via pip... done"
+
+    echo "[INFO] G.1 Creating output directory..."
+    # VAGRANT only
+    mkdir output
+    chown vagrant:vagrant output
+    echo "[INFO] G.1 Creating output directory... done"
 
     echo "[INFO] Setting vagrant box up... done"
 else
