@@ -2,8 +2,8 @@
 
 **aeneas-vagrant** automates the creation of a Vagrant box to run **aeneas**
 
-* Version: 1.7.0
-* Date: 2016-12-07
+* Version: 1.7.1
+* Date: 2016-12-21
 * Developed by: [Alberto Pettarin](http://www.albertopettarin.it/)
 * License: the GNU Affero General Public License Version 3 (AGPL v3)
 * Contact: [aeneas@readbeyond.it](mailto:aeneas@readbeyond.it)
@@ -99,7 +99,7 @@ At this point you can run **aeneas** as if it was installed
 on your host machine. For example:
 
 ```bash
-vagrant@debian-jessie:~$ python -m aeneas.tools.execute_job -h 
+vagrant@debian-jessie:~$ python -m aeneas.tools.execute_job -h
 ```
 
 will show the usage message for `execute_job`.
@@ -107,13 +107,13 @@ will show the usage message for `execute_job`.
 You can also use the `aeneas_execute_job` shortcut:
 
 ```bash
-vagrant@debian-jessie:~$ aeneas_execute_job -h 
+vagrant@debian-jessie:~$ aeneas_execute_job -h
 ```
 
 If you want to run the sample job:
 
 ```bash
-vagrant@debian-jessie:~$ aeneas_execute_job ../../usr/local/lib/python2.7/dist-packages/aeneas/tools/res/job.zip /vagrant/ 
+vagrant@debian-jessie:~$ aeneas_execute_job ../../usr/local/lib/python2.7/dist-packages/aeneas/tools/res/job.zip /vagrant/
 ```
 
 will execute the sample job and place its output

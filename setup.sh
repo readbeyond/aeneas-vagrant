@@ -3,7 +3,7 @@
 # Author: Alberto Pettarin
 # Copyright: 2015-2016, Alberto Pettarin (www.albertopettarin.it)
 # License: GNU AGPL v3
-# Version: 1.7.0
+# Version: 1.7.1
 # Email: aeneas@readbeyond.it
 # Status: Production
 
@@ -88,7 +88,7 @@ then
     sudo apt-get install -y libxml2-dev libxslt-dev zlib1g-dev
     sudo apt-get install -y python-dev python-pip
     echo "[INFO] B.4 Installing common libs using apt-get... done"
-    
+
     echo "[INFO] C.1 Installing common tools..."
     # VAGRANT only
     sudo apt-get install -y git
