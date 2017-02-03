@@ -202,6 +202,20 @@ inside the Vagrant box
     ```bash
     sudo pip install aeneas --upgrade
     ```
+    
+## Issues
+
+[David] On Ubuntu 16.04 using Vagrant 1.8.1, folder syncing wasn't working. I added the following lines to the Vagrantfile:
+
+config.vm.network "private_network", ip: "192.168.33.10"
+config.vm.synced_folder ".", "/vagrant", type: "nfs"
+
+And on the terminal ran:
+
+sudo apt-get install nfs-kernel-server
+vagrant reload
+
+Then all good.
 
 ## License
 
