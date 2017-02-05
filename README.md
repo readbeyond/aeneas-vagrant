@@ -205,17 +205,38 @@ inside the Vagrant box
     
 ## Issues
 
-[David] On Ubuntu 16.04 using Vagrant 1.8.1, folder syncing wasn't working. I added the following lines to the Vagrantfile:
+### Shared Folder Not Working in Ubuntu
 
+Reported by [David].
+
+On Ubuntu 16.04 using Vagrant 1.8.1, folder syncing was not working.
+I added the following lines to ``Vagrantfile``:
+
+```
 config.vm.network "private_network", ip: "192.168.33.10"
 config.vm.synced_folder ".", "/vagrant", type: "nfs"
+```
 
-And on the terminal ran:
+I also needed to install and reload:
 
+```
 sudo apt-get install nfs-kernel-server
 vagrant reload
+```
 
-Then all good.
+Then the shared folder worked.
+
+### aeneas Commands Not Available
+
+Reported by [David].
+
+When I set up the VM on Ubuntu 16.04, I noticed the ``aeneas_*`` commands
+were not available on the terminal until I ran (inside the VM):
+
+```
+sudo pip install aeneas --upgrade
+```
+
 
 ## License
 
