@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Author: Alberto Pettarin
-# Copyright: 2015-2016, Alberto Pettarin (www.albertopettarin.it)
+# Copyright: 2015-2017, Alberto Pettarin (www.albertopettarin.it)
 # License: GNU AGPL v3
-# Version: 1.7.1
+# Version: 1.7.2
 # Email: aeneas@readbeyond.it
 # Status: Production
 
@@ -103,7 +103,7 @@ then
     echo "[INFO] E.1 Installing Python deps via pip..."
     # VAGRANT only
     sudo pip install numpy --upgrade
-    sudo pip install boto3 pafy requests tgt youtube-dl --upgrade
+    sudo pip install boto3 requests tgt youtube-dl --upgrade
     sudo pip install Pillow --upgrade
     echo "[INFO] E.1 Installing Python deps via pip... done"
 
